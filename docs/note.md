@@ -18,6 +18,9 @@ fastClick.attach(document.body)
 - iconfont
 官网上 Travel项目
 
+- rem
+1rem=html font-size设定的值  如font-size:50px;
+
 
 
 
