@@ -6,12 +6,23 @@ function resolve (dir) {
 }
 module.exports = defineConfig({
   transpileDependencies: true,
+  filenameHashing: true, // 生成的静态资源在它们的文件名中包含了 hash 以便更好的控制缓存
+  lintOnSave: false, // eslint-loader 是否在保存的时候检查
+  productionSourceMap: false, //设置生产环境的 source map 开启与关闭,是否生成 sourceMap 文件
+
   devServer: {
     port: 1874,
     proxy: {}
   },
-  configureWebpack: {
-    resolve: {
+  configureWebpack: (config) => {
+    if (process.env.NODE_ENV === 'production') {
+      config.mode = 'production'
+    } else {
+      config.mode = 'development'
+      config.devtool = 'eval-source-map'
+    }
+
+    Object.assign(config.resolve, {
       extensions: ['.js', '.vue', '.json'],
       alias: {
         // 'vue$': 'vue/dist/vue.esm.js',
@@ -19,6 +30,6 @@ module.exports = defineConfig({
         'styles': resolve('src/assets/styles'),
         'common': resolve('src/common'),
       }
-    }
+    })
   }
 })

@@ -12,3 +12,5 @@ new Vue({
   render: h => h(App),
   router
 }).$mount('#app')
+
+console.log(11111111)
