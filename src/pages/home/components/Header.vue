@@ -1,8 +1,8 @@
 <template>
   <div class="header">
-    <div class="header-left">返回</div>
-    <div class="header-input">内容</div>
-    <div class="header-right">城市</div>
+    <div class="header-left"><i class="iconfont icon-fanhui"></i></div>
+    <div class="header-input"><i class="iconfont icon-chazhao"></i>内容</div>
+    <div class="header-right">城市<i class="iconfont icon-shixiangxiajiantou-"></i></div>
   </div>
 </template>
 
@@ -13,24 +13,41 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-// @import '~styles/varibles.styl'
+@import '~styles/varibles.styl'
 .header
-  height 0.86rem
-  background-color #00bcd4
+  height $headerHeight
+  background-color $bgColor
   display: flex
+  color: #fff
+  align-items: center
   .header-left
     width 0.64rem
     display: flex;
-    justify-content: center
-    align-items: center
+    justify-content: center;
+    .icon-fanhui
+      font-size: 0.45rem;
+      font-weight: bold
   .header-input
     flex 1
     background-color: #fff
-    margin 0.1rem
+    height 0.6rem
     border-radius: 0.06rem
+    color #999
+    display: flex
+    align-items: center
+    margin 0 0.12rem
+    padding 0 0.1rem
+    .icon-chazhao{
+      font-size 0.36rem
+      margin-right 0.1rem
+    }
   .header-right
     width 1.23rem
-    display: flex;
+    display: flex
     justify-content: center
     align-items: center
+
+    .icon-shixiangxiajiantou-{
+      font-size 0.5rem
+    }
 </style>

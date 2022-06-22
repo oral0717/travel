@@ -14,6 +14,7 @@ module.exports = defineConfig({
     port: 1874,
     proxy: {}
   },
+
   configureWebpack: (config) => {
     if (process.env.NODE_ENV === 'production') {
       config.mode = 'production'
@@ -31,5 +32,6 @@ module.exports = defineConfig({
         'common': resolve('src/common'),
       }
     })
+
   }
 })

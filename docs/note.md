@@ -1,4 +1,5 @@
 官方项目代码：https://git.imooc.com/coding-203/coding-203
+## meta
 - <meta name="viewport"
     content="
     width=device-width,
@@ -9,16 +10,22 @@
   - styles 全局样式
     - border.css 解决多倍屏幕上1像素边框问题
     - reset.css
-- fastclick库 解决触屏端click事件延迟300ms
+
+## fastclick库 解决触屏端click事件延迟300ms
 yarn add fastclick
 在main.js中注入：
 import fastClick from 'fastclick'
 fastClick.attach(document.body)
 
-- iconfont
-官网上 Travel项目
+## 使用iconfont
+- https://www.iconfont.cn/
+- 资源管理 -> 我的项目 -> 新增项目 Travel
+- 需要的icon加入购物车，在购物车里将icon加入 项目Travel
+- 进入项目Travel中”下载至本地“，将 iconfont.css eot svg ttf woff复制入项目中使用
+- 入口文件main.js中加入import 'styles/iconfont/iconfont.css'
+- 需要使用iconfont的组件中：<i class="iconfont icon-fanhui"></i>,icon-fanhui为当前图标样式名
 
-- rem
+## rem
 1rem=html font-size设定的值  如font-size:50px;
 
 
