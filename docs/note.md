@@ -28,7 +28,14 @@ fastClick.attach(document.body)
 ## rem
 1rem=html font-size设定的值  如font-size:50px;
 
+## 使用第三方插件vue-awesome-swiper
+- 修改第三方组件样式,使用 `>>>`穿透
+```css
+.swiper-wrap >>> .swiper-pagination-bullet-active{ // 修改第三方组件样式
+  background: #fff
+}
 
+```
 
 
 
