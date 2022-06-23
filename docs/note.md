@@ -37,8 +37,36 @@ fastClick.attach(document.body)
 
 ```
 
+## 样式 padding margin 百分比关系
+<style lang="stylus" scoped>
+.test-container
+  background #f2f2f2
+  width 200px
+  height 100px
+  padding 1% // 相对于父层容器width
+  margin 1% // 相对于父层容器width
+  box-sizing: border-box // 只管当前盒子
+  .inner-box
+    display inline-block
+    box-sizing: border-box
+    width 10%  // 相对于父级.test-container
+    background pink
+    padding 1% // 相对于父级.test-container的content-box宽度，即父层容器宽度
+    margin 1% // 相对于父级.test-container的content-box宽度，即父层容器宽度
+</style>
 
-
+## flex时子级层想要显示一行后...
+.rec-content
+  flex 1
+  margin-left 0.2rem
+  min-width 0
+  .rec-tit // 想要显示一行后...，但是有没有设定宽度，可以在父级设置min-width:0
+    color $defaultTextColor
+    font-size 0.28rem
+    line-height 0.4rem
+    overflow: hidden
+    white-space: nowrap
+    text-overflow: ellipsis
 
 
 
