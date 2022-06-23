@@ -2,8 +2,8 @@
   <div class="">
     <div class="recommend-title">周末去哪儿</div>
     <div class="list">
-      <div class="recommend-item" v-for="item of recommendList" :key="item.id">
-        <div class="rec-img" :style="{backgroundImage:`url(${item.img})`}"></div>
+      <div class="recommend-item" v-for="item of weekendList" :key="item.id">
+        <div class="rec-img" :style="{backgroundImage:`url(${item.imgUrl})`}"></div>
         <div class="rec-content">
           <p class="rec-tit">{{item.title}}</p>
           <p class="rec-desc">{{item.desc}}</p>
@@ -16,24 +16,12 @@
 <script>
 export default {
   name: "HomeWeekend",
-  data() {
-    return {
-      recommendList: [{
-        id:1,
-        img: 'https://youimg1.c-ctrip.com/target/01038120009i7d80s57D0_R_238_268.jpg',
-        title:'上海陆家嘴上海中心上海陆家嘴上海中心上海陆家嘴上海中心上海陆家嘴上海中心',
-        desc:'到达的地方大幅度发的放大放大放大到达的地方大幅度发的放大放大放大到达的地方大幅度发的放大放大放大'
-      },{
-        id:2,
-        img: 'https://youimg1.c-ctrip.com/target/01038120009i7d80s57D0_R_238_268.jpg',
-        title:'上海陆家嘴上海中心上海陆家嘴上海中心上海陆家嘴上海中心上海陆家嘴上海中心',
-        desc:'到达的地方大幅度发的放大放大放大到达的地方大幅度发的放大放大放大到达的地方大幅度发的放大放大放大'
-      },{
-        id:3,
-        img: 'https://youimg1.c-ctrip.com/target/01038120009i7d80s57D0_R_238_268.jpg',
-        title:'上海陆家嘴上海中心上海陆家嘴上海中心上海陆家嘴上海中心上海陆家嘴上海中心',
-        desc:'到达的地方大幅度发的放大放大放大到达的地方大幅度发的放大放大放大到达的地方大幅度发的放大放大放大'
-      }]
+  props: {
+    weekendList: {
+      type: Array,
+      default() {
+        return []
+      }
     }
   }
 }
@@ -56,7 +44,9 @@ export default {
   background #fff
   .rec-img
     width 100%
-    height 2rem
+    height 0
+    padding-bottom 37.088%
+    overflow hidden
     background-color $defaultBg
     background-size cover
   .rec-content

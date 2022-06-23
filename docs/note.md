@@ -68,6 +68,8 @@ fastClick.attach(document.body)
     white-space: nowrap
     text-overflow: ellipsis
 
-
+## 访问本地mock数据
+在public/mock下创建mock数据
+http://localhost:1874/mock/test.json
 
 

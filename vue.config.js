@@ -12,7 +12,14 @@ module.exports = defineConfig({
 
   devServer: {
     port: 1874,
-    proxy: {}
+    proxy: {
+      '/api': {
+        target: 'http://localhost:1874',
+        pathRewrite: {
+          '^/api': '/mock'
+        }
+      }
+    }
   },
 
   configureWebpack: (config) => {
