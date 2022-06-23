@@ -82,6 +82,7 @@ export default {
 
 <style lang="stylus" scoped>
 @import '~styles/varibles.styl'
+@import '~styles/mixins.styl'
   .icon-wrapper
     padding 0.3rem 0 50%
     height 0
@@ -105,4 +106,5 @@ export default {
       .icon-text
         color $defaultTextColor
         font-size 0.24rem
+        ellipsis()
 </style>
