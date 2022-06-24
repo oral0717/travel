@@ -3,46 +3,18 @@
   <div>
     <div class="list-title">我的位置</div>
     <div class="city-area">
-      <span class="city-item">北京北京北京北</span>
-      <span class="city-item">北京</span>
-      <span class="city-item">北京</span>
-      <span class="city-item">北京</span>
-      <span class="city-item">北京</span>
+      <span class="city-item">{{cityData.city}}</span>
     </div>
     <div class="list-title">热门城市</div>
     <div class="city-area">
-      <span class="city-item">北京</span>
+      <span class="city-item" v-for="item of cityData.hotCities" :key="item.id">{{item.name}}</span>
     </div>
-    <div class="list-title">A</div>
-    <div class="city-area long-list">
-      <div class="long-list-item">北京</div>
-      <div class="long-list-item">北京</div>
-      <div class="long-list-item">北京</div>
-      <div class="long-list-item">北京</div>
-      <div class="long-list-item">北京</div>
-      <div class="long-list-item">北京</div>
-      <div class="long-list-item">北京</div>
-      <div class="long-list-item">北京</div>
-      <div class="long-list-item">北京</div>
-      <div class="long-list-item">北京</div>
-      <div class="long-list-item">北京</div>
-      <div class="long-list-item">北京</div>
-      <div class="long-list-item">北京</div>
-      <div class="long-list-item">北京</div>
-      <div class="long-list-item">北京</div>
-      <div class="long-list-item">北京</div>
-      <div class="long-list-item">北京</div>
-      <div class="long-list-item">北京</div>
-      <div class="long-list-item">北京</div>
-      <div class="long-list-item">北京</div>
-      <div class="long-list-item">北京</div>
-      <div class="long-list-item">北京</div>
-      <div class="long-list-item">北京</div>
-      <div class="long-list-item">北京</div>
-      <div class="long-list-item">北京</div>
-      <div class="long-list-item">北京</div>
-      <div class="long-list-item">北京</div>
-      <div class="long-list-item">北京</div>
+
+    <div v-for="(letterCities,letter) in cityData.cities" :key="letter">
+      <div class="list-title">{{letter}}</div>
+      <div class="city-area long-list">
+        <div class="long-list-item" v-for="item of letterCities" :key="item.id">{{item.name}}</div>
+      </div>
     </div>
   </div>
 </div>
@@ -52,6 +24,14 @@
 import BetterScroll from 'better-scroll'
 export default {
   name: "CityList",
+  props: {
+    cityData: {
+      type: Object,
+      default(){
+        return {}
+      }
+    }
+  },
   mounted () {
     this.listScroll = new BetterScroll(this.$refs.cityList)
   }

@@ -14,7 +14,7 @@ export default {
 @import '~styles/varibles.styl'
 .search
   background-color $themeColor
-  padding 0 0.36rem 0.1rem
+  padding 0 0.16rem 0.1rem
   .search-input
     box-sizing: border-box
     width 100%

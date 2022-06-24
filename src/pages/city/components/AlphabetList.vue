@@ -1,38 +1,21 @@
 
 <template>
   <div class="alphabet">
-    <div class="letter">A</div>
-    <div class="letter">B</div>
-    <div class="letter">C</div>
-    <div class="letter">D</div>
-    <div class="letter">E</div>
-    <div class="letter">E</div>
-    <div class="letter">E</div>
-    <div class="letter">E</div>
-    <div class="letter">E</div>
-    <div class="letter">E</div>
-    <div class="letter">E</div>
-    <div class="letter">E</div>
-    <div class="letter">E</div>
-    <div class="letter">E</div>
-    <div class="letter">E</div>
-    <div class="letter">E</div>
-    <div class="letter">E</div>
-    <div class="letter">E</div>
-    <div class="letter">E</div>
-    <div class="letter">E</div>
-    <div class="letter">E</div>
-    <div class="letter">E</div>
-    <div class="letter">E</div>
-    <div class="letter">E</div>
-    <div class="letter">E</div>
-    <div class="letter">G</div>
+    <div class="letter" v-for="(value, key) in list" :key="key">{{key}}</div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "AlphabetList"
+  name: "AlphabetList",
+  props: {
+    list: {
+      type: Object,
+      default(){
+        return {}
+      }
+    }
+  }
 }
 </script>
 
