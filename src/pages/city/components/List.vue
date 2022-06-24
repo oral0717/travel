@@ -1,5 +1,6 @@
 <template>
-  <div class="city-list">
+<div class="city-list" ref="cityList">
+  <div>
     <div class="list-title">我的位置</div>
     <div class="city-area">
       <span class="city-item">北京北京北京北</span>
@@ -18,19 +19,54 @@
       <div class="long-list-item">北京</div>
       <div class="long-list-item">北京</div>
       <div class="long-list-item">北京</div>
+      <div class="long-list-item">北京</div>
+      <div class="long-list-item">北京</div>
+      <div class="long-list-item">北京</div>
+      <div class="long-list-item">北京</div>
+      <div class="long-list-item">北京</div>
+      <div class="long-list-item">北京</div>
+      <div class="long-list-item">北京</div>
+      <div class="long-list-item">北京</div>
+      <div class="long-list-item">北京</div>
+      <div class="long-list-item">北京</div>
+      <div class="long-list-item">北京</div>
+      <div class="long-list-item">北京</div>
+      <div class="long-list-item">北京</div>
+      <div class="long-list-item">北京</div>
+      <div class="long-list-item">北京</div>
+      <div class="long-list-item">北京</div>
+      <div class="long-list-item">北京</div>
+      <div class="long-list-item">北京</div>
+      <div class="long-list-item">北京</div>
+      <div class="long-list-item">北京</div>
+      <div class="long-list-item">北京</div>
+      <div class="long-list-item">北京</div>
+      <div class="long-list-item">北京</div>
+      <div class="long-list-item">北京</div>
     </div>
   </div>
+</div>
 </template>
 
 <script>
+import BetterScroll from 'better-scroll'
 export default {
-  name: "CityList"
+  name: "CityList",
+  mounted () {
+    this.listScroll = new BetterScroll(this.$refs.cityList)
+  }
 }
 </script>
 
 <style lang="stylus" scoped>
 @import '~styles/varibles.styl'
 .city-list
+  overflow hidden
+  position absolute
+  top: 1.58rem
+  left 0
+  right 0
+  bottom 0
   .list-title
     background-color $defaultBg
     color #666

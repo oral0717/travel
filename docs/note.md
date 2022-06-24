@@ -1,4 +1,5 @@
 官方项目代码：https://git.imooc.com/coding-203/coding-203
+
 ## meta
 - <meta name="viewport"
     content="
@@ -11,7 +12,7 @@
     - border.css 解决多倍屏幕上1像素边框问题
     - reset.css
 
-## fastclick库 解决触屏端click事件延迟300ms
+## 第三方包 fastclick库 解决触屏端click事件延迟300ms
 yarn add fastclick
 在main.js中注入：
 import fastClick from 'fastclick'
@@ -71,5 +72,8 @@ fastClick.attach(document.body)
 ## 访问本地mock数据
 在public/mock下创建mock数据
 http://localhost:1874/mock/test.json
+
+## 第三方包
+better-scroll 实现模块滚动 没有滚动条
 
 

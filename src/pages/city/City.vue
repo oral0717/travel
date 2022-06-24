@@ -3,6 +3,7 @@
     <CityHeader />
     <CiteySearch />
     <CiteyList />
+    <AlphabetList />
   </div>
 </template>
 
@@ -10,13 +11,15 @@
 import CityHeader from './components/Header.vue'
 import CiteySearch from './components/Search.vue'
 import CiteyList from './components/List.vue'
+import AlphabetList from './components/AlphabetList.vue'
 
 export default {
   name: "CityPage",
   components: {
     CityHeader,
     CiteySearch,
-    CiteyList
+    CiteyList,
+    AlphabetList
   }
 }
 </script>
