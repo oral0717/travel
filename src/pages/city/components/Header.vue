@@ -21,7 +21,7 @@ export default {
   position relative
   height $headerHeight
   line-height $headerHeight
-  background-color $bgColor
+  background-color $themeColor
   color: #fff
   align-items: center
   text-align: center

@@ -21,7 +21,7 @@ export default {
 @import '~styles/varibles.styl'
 .header
   height $headerHeight
-  background-color $bgColor
+  background-color $themeColor
   display: flex
   color: #fff
   align-items: center
