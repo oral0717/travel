@@ -2,7 +2,7 @@
   <div class="">
     <CityHeader />
     <CiteySearch />
-    <CiteyList :cityData="cityData" />
+    <CiteyList :cityData="cityData" v-if="cityData.cities"/>
     <AlphabetList :list="alphabetList" />
   </div>
 </template>
@@ -25,7 +25,7 @@ export default {
   data() {
     return {
       cityData: {},
-      alphabetList: []
+      alphabetList: {}
     }
   },
   mounted(){
@@ -38,6 +38,7 @@ export default {
         const {ret, data} = res.data
         if (ret) {
           self.cityData=data
+          console.log(22222, data)
           self.alphabetList=data.cities
         }
       })

@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import BetterScroll from 'better-scroll'
+import BScroll from '@better-scroll/core'
 export default {
   name: "CityList",
   props: {
@@ -29,11 +29,13 @@ export default {
       type: Object,
       default(){
         return {}
-      }
+      },
+
     }
   },
   mounted () {
-    this.listScroll = new BetterScroll(this.$refs.cityList)
+    console.log(this.$refs.cityList)
+    this.listScroll = new BScroll(this.$refs.cityList)
   }
 }
 </script>
@@ -41,12 +43,12 @@ export default {
 <style lang="stylus" scoped>
 @import '~styles/varibles.styl'
 .city-list
-  overflow hidden
   position absolute
   top: 1.58rem
   left 0
   right 0
   bottom 0
+  overflow hidden
   .list-title
     background-color $defaultBg
     color #666
