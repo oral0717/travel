@@ -60,14 +60,14 @@ export default {
   .list-title
     background-color $defaultBg
     color #666
-    font-size 0.24rem
-    height 0.48rem
-    line-height 0.48rem
+    font-size 0.28rem
+    height 0.6rem
+    line-height 0.6rem
     padding-left 0.32rem
     border-top 1px solid #ddd
     border-bottom 1px solid #ddd
   .city-area
-    padding 0.32rem
+    padding 0.3rem 0.3rem 0
     display: flex
     flex-wrap wrap
     justify-content flex-start
@@ -78,7 +78,7 @@ export default {
       border 0.02rem solid #ccc
       font-size 0.24rem
       margin-right 0.2rem
-      margin-bottom 0.2rem
+      margin-bottom 0.3rem
   .long-list
     padding 0
     .long-list-item

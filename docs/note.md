@@ -76,4 +76,4 @@ http://localhost:1874/mock/test.json
 ## 第三方包
 better-scroll 实现模块滚动 没有滚动条
 
-##
+## @touchmove="handleTouchMove"方法滑动时导致页面下拉，可以使用 @touchmove.prevent="handleTouchMove"
