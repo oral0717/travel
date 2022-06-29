@@ -10,7 +10,7 @@
       <span class="city-item" v-for="item of cityData.hotCities" :key="item.id">{{item.name}}</span>
     </div>
 
-    <div v-for="(letterCities,letter) in cityData.cities" :key="letter">
+    <div v-for="(letterCities,letter) in cityData.cities" :key="letter" :ref="letter">
       <div class="list-title">{{letter}}</div>
       <div class="city-area long-list">
         <div class="long-list-item" v-for="item of letterCities" :key="item.id">{{item.name}}</div>
@@ -25,6 +25,7 @@ import BScroll from '@better-scroll/core'
 export default {
   name: "CityList",
   props: {
+    letter: String,
     cityData: {
       type: Object,
       default(){
@@ -34,8 +35,15 @@ export default {
     }
   },
   mounted () {
-    console.log(this.$refs.cityList)
     this.listScroll = new BScroll(this.$refs.cityList)
+  },
+  watch: {
+    letter() {
+      if (this.letter) {
+        const element = this.$refs[this.letter][0]// 获取dom元素
+        this.listScroll.scrollToElement(element)
+      }
+    }
   }
 }
 </script>

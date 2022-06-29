@@ -2,8 +2,15 @@
   <div class="">
     <CityHeader />
     <CiteySearch />
-    <CiteyList :cityData="cityData" v-if="cityData.cities"/>
-    <AlphabetList :list="alphabetList" />
+    <CiteyList
+      :cityData="cityData"
+      v-if="cityData.cities"
+      :letter="letter"
+    />
+    <AlphabetList
+      :list="alphabetList"
+      @handleLetterClick="handleLetterClick"
+    />
   </div>
 </template>
 
@@ -25,20 +32,23 @@ export default {
   data() {
     return {
       cityData: {},
-      alphabetList: {}
+      alphabetList: {},
+      letter: ''
     }
   },
   mounted(){
     this.getCity()
   },
   methods: {
+    handleLetterClick(letter) {
+      this.letter = letter
+    },
     getCity(){
       const self = this
       axios.get('/api/city.json').then((res)=>{
         const {ret, data} = res.data
         if (ret) {
           self.cityData=data
-          console.log(22222, data)
           self.alphabetList=data.cities
         }
       })

@@ -1,7 +1,12 @@
 
 <template>
   <div class="alphabet">
-    <div class="letter" v-for="(value, key) in list" :key="key">{{key}}</div>
+    <div
+      class="letter"
+      v-for="(value, key) in list"
+      :key="key"
+      @click="handleLetterClick"
+    >{{key}}</div>
   </div>
 </template>
 
@@ -14,6 +19,12 @@ export default {
       default(){
         return {}
       }
+    }
+  },
+  methods: {
+    handleLetterClick(e) {
+      const {innerText} = e.target
+      this.$emit('handleLetterClick', innerText)
     }
   }
 }
