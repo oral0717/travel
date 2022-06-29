@@ -1,7 +1,7 @@
 <template>
   <div class="">
     <CityHeader />
-    <CiteySearch />
+    <CiteySearch :cities="cityData.cities"/>
     <CiteyList
       :cityData="cityData"
       v-if="cityData.cities"
