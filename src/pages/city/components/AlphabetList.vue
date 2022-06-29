@@ -110,7 +110,7 @@ export default {
       display flex
       justify-content: center
       align-items: center
-      font-size 0.32rem
+      font-size 0.36rem
       &::after
         position absolute
         top 0.2rem

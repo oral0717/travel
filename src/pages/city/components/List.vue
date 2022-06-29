@@ -2,7 +2,7 @@
 <div class="city-list" ref="cityList">
   <div>
     <div class="list-title">我的位置</div>
-    <div class="city-area">
+    <div class="city-area my-location">
       <span class="city-item">{{cityData.city}}</span>
     </div>
     <div class="list-title">热门城市</div>
@@ -67,7 +67,7 @@ export default {
     border-top 1px solid #ddd
     border-bottom 1px solid #ddd
   .city-area
-    padding 0.3rem 0.3rem 0
+    padding 0.24rem 0.3rem 0
     display: flex
     flex-wrap wrap
     justify-content flex-start
@@ -78,7 +78,10 @@ export default {
       border 0.02rem solid #ccc
       font-size 0.24rem
       margin-right 0.2rem
-      margin-bottom 0.3rem
+      margin-bottom 0.24rem
+    &.my-location .city-item
+      border-color $themeColor
+      color $themeColor
   .long-list
     padding 0
     .long-list-item
