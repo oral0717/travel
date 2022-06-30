@@ -47,6 +47,8 @@ export default {
   left 0
   right 0
   bottom 0
+  border 1px solid red
+
   .list-title
     background-color $defaultBg
     color #666

@@ -25,7 +25,7 @@ export default {
   data() {
     return {
       cityData: {},
-      alphabetList: []
+      alphabetList: {}
     }
   },
   mounted(){
