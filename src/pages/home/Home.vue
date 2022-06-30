@@ -10,6 +10,7 @@
 
 <script>
 import axios from 'axios'
+import {mapState} from 'vuex'
 import HomeHeader from "./components/Header";
 import SwiperComp from "./components/Swiper"
 import IconsEntry from "./components/IconsEntry"
@@ -27,14 +28,24 @@ export default {
   },
   data() {
     return {
+      lastCity: '',
       swiperList:[],
       weekendList:[],
       iconList:[],
       recommendList:[]
     }
   },
+  computed: {
+    ...mapState(['city'])
+  },
   mounted(){
-    this.getHomeData()
+    // this.getHomeData()
+  },
+  activated() { // 使用了<keep-alive>就会有这个钩子,每次组件渲染都执行
+    if (this.lastCity !== this.city) { // 城市切换了才会获取新的数据
+      this.lastCity = this.city
+      this.getHomeData()
+    }
   },
   methods: {
     getHomeData() {
