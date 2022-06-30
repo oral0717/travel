@@ -3,17 +3,29 @@
   <div>
     <div class="list-title">我的位置</div>
     <div class="city-area my-location">
-      <span class="city-item">{{cityData.city}}</span>
+      <span class="city-item">{{this.$store.state.city}}</span>
     </div>
     <div class="list-title">热门城市</div>
     <div class="city-area">
-      <span class="city-item" v-for="item of cityData.hotCities" :key="item.id">{{item.name}}</span>
+      <span class="city-item"
+        v-for="item of cityData.hotCities"
+        :key="item.id"
+        @click="changeCity(item.name)"
+      >
+        {{item.name}}
+      </span>
     </div>
 
     <div v-for="(letterCities,letter) in cityData.cities" :key="letter" :ref="letter">
       <div class="list-title">{{letter}}</div>
       <div class="city-area long-list">
-        <div class="long-list-item" v-for="item of letterCities" :key="item.id">{{item.name}}</div>
+        <div class="long-list-item"
+          v-for="item of letterCities"
+          :key="item.id"
+          @click="changeCity(item.name)"
+        >
+          {{item.name}}
+        </div>
       </div>
     </div>
   </div>
@@ -43,6 +55,12 @@ export default {
         const element = this.$refs[this.letter][0]// 获取dom元素
         this.listScroll.scrollToElement(element)
       }
+    }
+  },
+  methods: {
+    changeCity(city) {
+      this.$store.commit('changeCity', city)
+      this.$router.push('/')
     }
   }
 }

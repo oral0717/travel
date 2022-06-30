@@ -5,7 +5,12 @@
     </div>
     <div v-if="showSearchResult" class="search-content" ref="searchResult">
       <ul class="search-ul">
-        <li v-for="item of list" :key="item.id" class="search-item">{{item.name}}</li>
+        <li
+          v-for="item of list"
+          :key="item.id"
+          class="search-item"
+          @click="changeCity(item.name)"
+        >{{item.name}}</li>
         <li v-if="noCityData" class="search-item">没有查询到该城市！</li>
       </ul>
     </div>
@@ -61,6 +66,12 @@ export default {
   },
   updated() {
     this.listScroll = new BScroll(this.$refs.searchResult)
+  },
+  methods: {
+    changeCity(city) {
+      this.$store.commit('changeCity', city)
+      this.$router.push('/')
+    }
   }
 }
 </script>
