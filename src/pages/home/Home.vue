@@ -1,6 +1,6 @@
 <template>
   <div>
-    <HomeHeader :city="city"/>
+    <HomeHeader/>
     <SwiperComp :swiperList="swiperList"/>
     <IconsEntry :iconList="iconList"/>
     <RecommendList :recommendList="recommendList"/>
@@ -10,6 +10,7 @@
 
 <script>
 import axios from 'axios'
+import {mapState} from 'vuex'
 import HomeHeader from "./components/Header";
 import SwiperComp from "./components/Swiper"
 import IconsEntry from "./components/IconsEntry"
@@ -27,15 +28,24 @@ export default {
   },
   data() {
     return {
-      city: '城市',
+      lastCity: '',
       swiperList:[],
       weekendList:[],
       iconList:[],
       recommendList:[]
     }
   },
+  computed: {
+    ...mapState(['city'])
+  },
   mounted(){
-    this.getHomeData()
+    // this.getHomeData()
+  },
+  activated() { // 使用了<keep-alive>就会有这个钩子,每次组件渲染都执行
+    if (this.lastCity !== this.city) { // 城市切换了才会获取新的数据
+      this.lastCity = this.city
+      this.getHomeData()
+    }
   },
   methods: {
     getHomeData() {
@@ -43,9 +53,7 @@ export default {
       axios.get('/api/index.json')
       .then((res)=>{
         if (res.data.ret) {
-          console.log(res.data.data)
-          const {city, swiperList, weekendList, iconList, recommendList} = res.data.data
-          self.city = city
+          const { swiperList, weekendList, iconList, recommendList} = res.data.data
           self.swiperList = swiperList
           self.weekendList = weekendList
           self.iconList = iconList
