@@ -45,11 +45,13 @@ export default {
           })
         }
         this.list = result
-        this.listScroll = new BScroll(this.$refs.searchResult)
       }, 100)
     }
   },
   mounted(){
+  },
+  updated() {
+    this.listScroll = new BScroll(this.$refs.searchResult)
   }
 }
 </script>
@@ -69,7 +71,6 @@ export default {
     color #666
     text-align center
 .search-content
-  border 1px solid red
   z-index 1
   overflow: hidden
   position: absolute
