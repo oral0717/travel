@@ -66,7 +66,9 @@ export default {
   mounted(){
   },
   updated() {
-    this.listScroll = new BScroll(this.$refs.searchResult)
+    this.listScroll = new BScroll(this.$refs.searchResult, {
+      click: true
+    })
   },
   methods: {
     ...mapMutations(['changeCity']),

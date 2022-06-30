@@ -6,9 +6,9 @@ import 'styles/reset.css'
 import 'styles/border.css'
 import 'styles/iconfont/iconfont.css'
 import 'swiper/dist/css/swiper.css'
-import fastClick from 'fastclick'
+// import fastClick from 'fastclick'
 import store from './store'
-fastClick.attach(document.body)
+// fastClick.attach(document.body)
 
 Vue.config.productionTip = false
 

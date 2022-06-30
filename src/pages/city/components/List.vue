@@ -53,7 +53,9 @@ export default {
     })
   },
   mounted () {
-    this.listScroll = new BScroll(this.$refs.cityList)
+    this.listScroll = new BScroll(this.$refs.cityList, {
+      click: true
+    })
   },
   watch: {
     letter() {

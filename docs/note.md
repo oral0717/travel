@@ -17,7 +17,8 @@ yarn add fastclick
 在main.js中注入：
 import fastClick from 'fastclick'
 fastClick.attach(document.body)
-
+- 可以不使用fastclick,直接添加样式：（同效）
+html{touch-action: manipulation;}
 ## 使用iconfont
 - https://www.iconfont.cn/
 - 资源管理 -> 我的项目 -> 新增项目 Travel
@@ -84,5 +85,20 @@ try {
 } catch (e) {
   console.log('浏览器不支持localStorage')
 }
+
+## 路由问题
+- 报错 Uncaught (in promise) NavigationDuplicated: Avoided redundant navigation to current location: "/".
+- 解决
+// src/router/index.js
+Vue.use(Router)
+const router = new Router({
+  routes
+})
+ 
+const VueRouterPush = Router.prototype.push
+Router.prototype.push = function push (to) {
+  return VueRouterPush.call(this, to).catch(err => err)
+}
+
 
 
