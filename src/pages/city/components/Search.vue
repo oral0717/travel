@@ -1,11 +1,12 @@
 <template>
   <div>
     <div class="search">
-      <input v-model="keyword" class="search-input" type="text" placeholder="输入城市名或拼音" />
+      <input v-model.trim="keyword" class="search-input" type="text" placeholder="输入城市名或拼音" />
     </div>
-    <div class="search-content" ref="searchResult">
+    <div v-if="showSearchResult" class="search-content" ref="searchResult">
       <ul class="search-ul">
         <li v-for="item of list" :key="item.id" class="search-item">{{item.name}}</li>
+        <li v-if="noCityData" class="search-item">没有查询到该城市！</li>
       </ul>
     </div>
   </div>
@@ -30,6 +31,14 @@ export default {
       timer: null
     }
   },
+  computed: {
+    showSearchResult() {
+      return !!this.keyword
+    },
+    noCityData() {
+      return this.list.length <= 0
+    }
+  },
   watch: {
     keyword() {
       if (this.timer) {
@@ -39,7 +48,7 @@ export default {
         const result = []
         for (let i in this.cities) {
           this.cities[i].forEach((value) => {
-            if(value.spell.indexOf(this.keyword) > -1 || value.name.indexOf(this.keyword) > -1) {
+            if(value.spell.indexOf(this.keyword.toLowerCase()) > -1 || value.name.indexOf(this.keyword) > -1) {
               result.push(value)
             }
           })
