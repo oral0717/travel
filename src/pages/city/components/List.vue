@@ -3,14 +3,14 @@
   <div>
     <div class="list-title">我的位置</div>
     <div class="city-area my-location">
-      <span class="city-item">{{this.$store.state.city}}</span>
+      <span class="city-item">{{this.currentCity}}</span>
     </div>
     <div class="list-title">热门城市</div>
     <div class="city-area">
       <span class="city-item"
         v-for="item of cityData.hotCities"
         :key="item.id"
-        @click="changeCity(item.name)"
+        @click="handleChangeCity(item.name)"
       >
         {{item.name}}
       </span>
@@ -22,7 +22,7 @@
         <div class="long-list-item"
           v-for="item of letterCities"
           :key="item.id"
-          @click="changeCity(item.name)"
+          @click="handleChangeCity(item.name)"
         >
           {{item.name}}
         </div>
@@ -34,6 +34,7 @@
 
 <script>
 import BScroll from '@better-scroll/core'
+import {mapState, mapMutations} from 'vuex'
 export default {
   name: "CityList",
   props: {
@@ -45,6 +46,11 @@ export default {
       },
 
     }
+  },
+  computed: {
+    ...mapState({
+      currentCity: 'city'
+    })
   },
   mounted () {
     this.listScroll = new BScroll(this.$refs.cityList)
@@ -58,10 +64,11 @@ export default {
     }
   },
   methods: {
-    changeCity(city) {
-      this.$store.commit('changeCity', city)
+    handleChangeCity(city) {
+      this.changeCity(city)
       this.$router.push('/')
-    }
+    },
+    ...mapMutations(['changeCity'])
   }
 }
 </script>

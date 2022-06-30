@@ -3,14 +3,22 @@
     <div class="header-left"><i class="iconfont icon-fanhui"></i></div>
     <div class="header-input"><i class="iconfont icon-chazhao"></i>输入城市/景点/游玩主题</div>
     <router-link to='/city'>
-      <div class="header-right">{{this.$store.state.city}}<i class="iconfont icon-shixiangxiajiantou-"></i></div>
+      <div class="header-right">{{this.city}}<i class="iconfont icon-shixiangxiajiantou-"></i></div>
     </router-link>
   </div>
 </template>
 
 <script>
+import {
+  mapState,
+  // mapGetters
+} from 'vuex'
 export default {
-  name: "HomeHeader"
+  name: "HomeHeader",
+  computed: {
+    ...mapState(['city']),
+    // ...mapGetters(['testCity'])
+  }
 };
 </script>
 

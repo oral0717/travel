@@ -9,7 +9,7 @@
           v-for="item of list"
           :key="item.id"
           class="search-item"
-          @click="changeCity(item.name)"
+          @click="handleChangeCity(item.name)"
         >{{item.name}}</li>
         <li v-if="noCityData" class="search-item">没有查询到该城市！</li>
       </ul>
@@ -19,6 +19,7 @@
 
 <script>
 import BScroll from '@better-scroll/core'
+import {mapMutations} from 'vuex'
 export default {
   name: "CityHeader",
   props: {
@@ -68,7 +69,8 @@ export default {
     this.listScroll = new BScroll(this.$refs.searchResult)
   },
   methods: {
-    changeCity(city) {
+    ...mapMutations(['changeCity']),
+    handleChangeCity(city) {
       this.$store.commit('changeCity', city)
       this.$router.push('/')
     }

@@ -77,3 +77,12 @@ http://localhost:1874/mock/test.json
 better-scroll 实现模块滚动 没有滚动条
 
 ## @touchmove="handleTouchMove"方法滑动时导致页面下拉，可以使用 @touchmove.prevent="handleTouchMove"
+
+## 浏览器中使用localStorage，需要用try catch以防隐身模式或者用户操作不允许使用localStorage
+try {
+  localStorage.city = city
+} catch (e) {
+  console.log('浏览器不支持localStorage')
+}
+
+
