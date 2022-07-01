@@ -30,7 +30,9 @@ export default {
     return {
       swiperOption: {
         pagination: '.swiper-pagination',
-        paginationType : 'fraction'
+        paginationType : 'fraction',
+        observeParents: true, // 如果容器发生变化，swiper要自动自我刷新
+        observer: true
       }
     }
   },
