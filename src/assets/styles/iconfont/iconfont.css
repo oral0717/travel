@@ -1,10 +1,10 @@
 @font-face {
   font-family: "iconfont"; /* Project id 3474869 */
-  src: url('iconfont.eot?t=1655875357565'); /* IE9 */
-  src: url('iconfont.eot?t=1655875357565#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('iconfont.woff?t=1655875357565') format('woff'),
-       url('iconfont.ttf?t=1655875357565') format('truetype'),
-       url('iconfont.svg?t=1655875357565#iconfont') format('svg');
+  src: url('iconfont.eot?t=1656656601816'); /* IE9 */
+  src: url('iconfont.eot?t=1656656601816#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('iconfont.woff?t=1656656601816') format('woff'),
+       url('iconfont.ttf?t=1656656601816') format('truetype'),
+       url('iconfont.svg?t=1656656601816#iconfont') format('svg');
 }
 
 .iconfont {
@@ -13,6 +13,10 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-tupian:before {
+  content: "\e8d3";
 }
 
 .icon-shixiangxiajiantou-:before {

@@ -58,9 +58,6 @@ export default {
       click: true
     })
   },
-  updated() {
-    console.log('upd')
-  },
   activated() {
     this.listScroll = new BScroll(this.$refs.cityList, {
       click: true

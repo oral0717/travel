@@ -100,5 +100,8 @@ Router.prototype.push = function push (to) {
   return VueRouterPush.call(this, to).catch(err => err)
 }
 
+## refs
+- 问题： v-for渲染了一组dom, dom上用了:ref="letter",letter是变量，this.$refs[letter] undefined，this.$refs有值，this.$refs['A']有值，但是当letter是变量时就是undefined
+- 解决：v-for渲染了一组dom, dom上用了ref="refLetter"，refLetter是常量，然后his.$refs['refLetter']是数组，然后通过letter的index取refs组织中的目标项
 
-
+## 
