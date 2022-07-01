@@ -3,10 +3,10 @@
   <div class="alphabet">
     <div
       class="letter"
-      v-for="item of letters"
+      v-for="(item, index) of letters"
       :key="item"
       :ref="item"
-      @click="handleLetterClick"
+      @click="handleLetterClick(item, index)"
       @touchstart="handleTouchStart"
       @touchmove.prevent="handleTouchMove"
       @touchend="handleTouchEnd"
@@ -50,9 +50,8 @@ export default {
     this.startY = this.$refs['A'][0].offsetTop // A所处位置距离本组件顶部高度
   },
   methods: {
-    handleLetterClick(e) {
-      const {innerText} = e.target
-      this.$emit('handleLetterClick', innerText)
+    handleLetterClick(item, index) {
+      this.$emit('handleLetterClick', {letter:item, index})
     },
     handleTouchStart() {
       this.touchStatus = true
@@ -69,7 +68,7 @@ export default {
         const index = Math.floor((touchY - startY) / 21) // 手指当前所处字母位置的index
         if (index >= 0 && index < this.letters.length) {
           this.bubbleLetter = this.letters[index]
-          this.$emit('handleLetterClick', this.letters[index])
+          this.$emit('handleLetterClick', {letter: this.letters[index], index})
         }
       // }, 16)
     },

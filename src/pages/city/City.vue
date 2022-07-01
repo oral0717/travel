@@ -5,7 +5,8 @@
     <CiteyList
       :cityData="cityData"
       v-if="cityData.cities"
-      :letter="letter"
+      :curLetter="letter"
+      :curLetterIndex="letterIndex"
     />
     <AlphabetList
       :list="alphabetList"
@@ -33,15 +34,18 @@ export default {
     return {
       cityData: {},
       alphabetList: {},
-      letter: ''
+      letter: '',
+      letterIndex: 0
     }
   },
   mounted(){
     this.getCity()
   },
   methods: {
-    handleLetterClick(letter) {
+    handleLetterClick(obj) {
+      const {letter, index} = obj
       this.letter = letter
+      this.letterIndex = index
     },
     getCity(){
       const self = this

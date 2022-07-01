@@ -16,8 +16,8 @@
       </span>
     </div>
 
-    <div v-for="(letterCities,letter) in cityData.cities" :key="letter" :ref="letter">
-      <div class="list-title">{{letter}}</div>
+    <div v-for="(letterCities,letter) in cityData.cities" :key="letter" >
+      <div class="list-title" ref="refLetter">{{letter}}</div>
       <div class="city-area long-list">
         <div class="long-list-item"
           v-for="item of letterCities"
@@ -38,7 +38,8 @@ import {mapState, mapMutations} from 'vuex'
 export default {
   name: "CityList",
   props: {
-    letter: String,
+    curLetter: String,
+    curLetterIndex: Number,
     cityData: {
       type: Object,
       default(){
@@ -57,10 +58,18 @@ export default {
       click: true
     })
   },
+  updated() {
+    console.log('upd')
+  },
+  activated() {
+    this.listScroll = new BScroll(this.$refs.cityList, {
+      click: true
+    })
+  },
   watch: {
-    letter() {
-      if (this.letter) {
-        const element = this.$refs[this.letter][0]// 获取dom元素
+    curLetter() {
+      if (this.curLetter) {
+        const element = this.$refs.refLetter[this.curLetterIndex]// 获取dom元素
         this.listScroll.scrollToElement(element)
       }
     }
