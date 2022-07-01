@@ -5,19 +5,30 @@
         <p class="banner-txt">
           {{detail.sightName}}
         </p>
-        <div class="img-num"><i class="iconfont icon-tupian"></i>{{detail.gallaryImgs.length}}</div>
+        <div class="img-num"
+          v-if="detail.gallaryImgs"
+          @click="handleToggleGallary"
+        >
+          <i class="iconfont icon-tupian"></i>{{detail.gallaryImgs.length}}
+        </div>
       </div>
     </div>
+    <CommonGallary v-if="showGallary" :imgs="detail.gallaryImgs" @handleCloseGallary="handleToggleGallary"/>
   </div>
 </template>
 
 <script>
 import axios from 'axios'
+import CommonGallary from 'common/components/gallary/Gallary'
 export default {
   name: "DetailPage",
+  components: {
+    CommonGallary
+  },
   data() {
     return {
-      detail: {}
+      detail: {},
+      showGallary: false
     }
   },
   mounted(...rest) {
@@ -32,6 +43,9 @@ export default {
         this.detail = data
 
       })
+    },
+    handleToggleGallary() {
+      this.showGallary = !this.showGallary
     }
   }
 }
@@ -42,7 +56,7 @@ export default {
 @import '~styles/mixins.styl'
 .banner
   position relative
-  width 100
+  width 100%
   height 31.05vh
   overflow hidden
   background-color $defaultBg

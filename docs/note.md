@@ -104,4 +104,9 @@ Router.prototype.push = function push (to) {
 - 问题： v-for渲染了一组dom, dom上用了:ref="letter",letter是变量，this.$refs[letter] undefined，this.$refs有值，this.$refs['A']有值，但是当letter是变量时就是undefined
 - 解决：v-for渲染了一组dom, dom上用了ref="refLetter"，refLetter是常量，然后his.$refs['refLetter']是数组，然后通过letter的index取refs组织中的目标项
 
-## 
+## 图片留默认位置
+width 100%
+height 0
+padding-bottom 100% // 根据图片宽高比计算得出
+overflow hidden
+background #f8f8f8
