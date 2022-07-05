@@ -2,7 +2,7 @@
   <div class="">
     <Banner :sightName="sightName" :bannerImg="bannerImg" :gallaryImgs="gallaryImgs" />
     <Header />
-    <DetailList :list="list"></DetailList>
+    <DetailList :list="categoryList"></DetailList>
     <div style="height: 30rem"></div>
 
   </div>
@@ -25,27 +25,7 @@ export default {
       bannerImg: '',
       gallaryImgs: [],
       categoryList: [],
-      sightName: '',
-      list: [{ // 递归组件调用
-        title: '成人票',
-        children: [{
-          title: '成人票三馆联票',
-          children: [{
-            title: '成人票三馆联票 - 某一链锁店销售',
-            children: [{
-              title: '某一链锁店销售'
-            }]
-          }]
-        },{
-          title: '成人票五馆联票'
-        }]
-      }, {
-        title: '亲子票'
-      }, {
-        title: '儿童票'
-      }, {
-        title: '特惠票'
-      }]
+      sightName: ''
     }
   },
   mounted() {
@@ -53,7 +33,12 @@ export default {
   },
   methods: {
     getDetail() {
-      axios.get('/api/detail.json').then((res) => {
+      console.log(this.$route.params)
+      axios.get('/api/detail.json', {
+        params: {
+          id: this.$route.params.id
+        }
+      }).then((res) => {
         const {data} = res.data
         this.bannerImg = data.bannerImg
         this.gallaryImgs = data.gallaryImgs

@@ -19,10 +19,15 @@ export default new Router({
     path: '/detail/:id',
     name: 'Detail',
     component: Detail
-  }]
+    }],
+  scrollBehavior() { // 切换路由时，页面始终显示页面最顶部
+    return {x: 0, y: 0}
+  }
 })
 
 const VueRouterPush = Router.prototype.push
 Router.prototype.push = function push (to) {
   return VueRouterPush.call(this, to).catch(err => err)
 }
+
+

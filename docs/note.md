@@ -94,7 +94,7 @@ Vue.use(Router)
 const router = new Router({
   routes
 })
- 
+
 const VueRouterPush = Router.prototype.push
 Router.prototype.push = function push (to) {
   return VueRouterPush.call(this, to).catch(err => err)
@@ -122,7 +122,17 @@ deactivated() {
 
 ## 递归组件
 
-
-
+## 切换路由时页面始终回到顶部
+router/index.js
+scrollBehavior(to, from, savedPosition) { // 切换路由时，页面始终显示页面最顶部
+  return {x: 0, y: 0}
+}
+## 需要用到组件name的地方
+export default {
+  name: "HomePage",
+};
+- <keep-alive exclude="DetailPage"></keep-alive> // include="name1,name2"
+- 递归调用组件时，写的组件名 <DetailList></DetailList>
+- devtool中展示的组件名
 
 

@@ -19,14 +19,14 @@ export default {
     return {
       showAbs: true,
       opacityStyle: {
-        opacity: 0
+        opacity: 1
       }
     }
   },
-  activated() {
+  mounted() {
     window.addEventListener("scroll", this.handleScroll)
   },
-  deactivated() {
+  destroyed() {
     window.removeEventListener('scroll', this.handleScroll)
   },
   methods: {
