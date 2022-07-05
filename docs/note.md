@@ -135,4 +135,6 @@ export default {
 - 递归调用组件时，写的组件名 <DetailList></DetailList>
 - devtool中展示的组件名
 
-
+## 代码拆分，按需加载
+router/index.js
+component: () => import('@/pages/home/HomePage'),
