@@ -110,3 +110,19 @@ height 0
 padding-bottom 100% // 根据图片宽高比计算得出
 overflow hidden
 background #f8f8f8
+
+## 全局事件解绑
+使用<keep-alive>时，用的生命周期：
+activated() {
+  window.addEventListener("scroll", this.handleScroll)
+},
+deactivated() {
+  window.removeEventListener('scroll', this.handleScroll)
+},
+
+## 递归组件
+
+
+
+
+
