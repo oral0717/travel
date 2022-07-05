@@ -1,16 +1,20 @@
 <template>
   <div class="">
     <Banner :sightName="sightName" :bannerImg="bannerImg" :gallaryImgs="gallaryImgs" />
+    <Header />
+    <div style="height: 30rem"></div>
   </div>
 </template>
 
 <script>
 import axios from 'axios'
 import Banner from './components/Banner.vue'
+import Header from './components/Header.vue'
 export default {
   name: "DetailPage",
   components: {
-    Banner
+    Banner,
+    Header
   },
   data() {
     return {
