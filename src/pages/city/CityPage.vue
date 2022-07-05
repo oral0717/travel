@@ -1,8 +1,8 @@
 <template>
   <div class="">
     <CityHeader />
-    <CiteySearch :cities="cityData.cities"/>
-    <CiteyList
+    <CitySearch :cities="cityData.cities"/>
+    <CityList
       :cityData="cityData"
       v-if="cityData.cities"
       :curLetter="letter"
@@ -17,17 +17,17 @@
 
 <script>
 import axios from 'axios'
-import CityHeader from './components/Header.vue'
-import CiteySearch from './components/Search.vue'
-import CiteyList from './components/List.vue'
+import CityHeader from './components/CityHeader.vue'
+import CitySearch from './components/CitySearch.vue'
+import CityList from './components/CityList.vue'
 import AlphabetList from './components/AlphabetList.vue'
 
 export default {
   name: "CityPage",
   components: {
     CityHeader,
-    CiteySearch,
-    CiteyList,
+    CitySearch,
+    CityList,
     AlphabetList
   },
   data() {

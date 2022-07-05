@@ -1,7 +1,7 @@
 <template>
   <div class="">
-    <Banner :sightName="sightName" :bannerImg="bannerImg" :gallaryImgs="gallaryImgs" />
-    <Header />
+    <DetailBanner :sightName="sightName" :bannerImg="bannerImg" :gallaryImgs="gallaryImgs" />
+    <DetailHeader />
     <DetailList :list="categoryList"></DetailList>
     <div style="height: 30rem"></div>
 
@@ -10,14 +10,14 @@
 
 <script>
 import axios from 'axios'
-import Banner from './components/Banner.vue'
-import Header from './components/Header.vue'
+import DetailBanner from './components/DetailBanner.vue'
+import DetailHeader from './components/DetailHeader.vue'
 import DetailList from './components/DetailList.vue'
 export default {
   name: "DetailPage",
   components: {
-    Banner,
-    Header,
+    DetailBanner,
+    DetailHeader,
     DetailList
   },
   data() {
@@ -33,7 +33,7 @@ export default {
   },
   methods: {
     getDetail() {
-      console.log(this.$route.params)
+      // console.log(this.$route.params) // id
       axios.get('/api/detail.json', {
         params: {
           id: this.$route.params.id

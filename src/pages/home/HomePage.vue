@@ -1,7 +1,7 @@
 <template>
   <div>
     <HomeHeader/>
-    <SwiperComp :swiperList="swiperList"/>
+    <HomeSwiper :swiperList="swiperList"/>
     <IconsEntry :iconList="iconList"/>
     <RecommendList :recommendList="recommendList"/>
     <HomeWeekend :weekendList="weekendList"/>
@@ -11,17 +11,17 @@
 <script>
 import axios from 'axios'
 import {mapState} from 'vuex'
-import HomeHeader from "./components/Header";
-import SwiperComp from "./components/Swiper"
+import HomeHeader from "./components/HomeHeader";
+import HomeSwiper from "./components/HomeSwiper"
 import IconsEntry from "./components/IconsEntry"
 import RecommendList from "./components/RecommendList"
-import HomeWeekend from "./components/Weekend"
+import HomeWeekend from "./components/HomeWeekend"
 
 export default {
   name: "HomePage",
   components: {
     HomeHeader,
-    SwiperComp,
+    HomeSwiper,
     IconsEntry,
     RecommendList,
     HomeWeekend

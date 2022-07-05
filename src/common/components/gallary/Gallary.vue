@@ -1,3 +1,4 @@
+// 轮滑预览图
 <template>
   <div class="container">
     <i class="iconfont icon-guanbi" @click="handleClose"></i>

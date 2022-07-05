@@ -1,24 +1,24 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from '@/pages/home/Home'
-import City from '@/pages/city/City'
-import Detail from '@/pages/detail/Detail'
+import HomePage from '@/pages/home/HomePage'
+import CityPage from '@/pages/city/CityPage'
+import DetailPage from '@/pages/detail/DetailPage'
 
 Vue.use(Router)
 
 export default new Router({
   routes: [{
     path: '/',
-    name: 'Home',
-    component: Home
+    name: 'HomePage',
+    component: HomePage
   }, {
     path: '/city',
-    name: 'City',
-    component: City
+    name: 'CityPage',
+    component: CityPage
   }, {
     path: '/detail/:id',
-    name: 'Detail',
-    component: Detail
+    name: 'DetailPage',
+    component: DetailPage
     }],
   scrollBehavior() { // 切换路由时，页面始终显示页面最顶部
     return {x: 0, y: 0}
