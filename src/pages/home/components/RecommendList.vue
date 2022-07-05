@@ -2,7 +2,7 @@
   <div class="">
     <div class="recommend-title">热销推荐</div>
     <div class="list">
-      <router-link tag="div" :to="`/detail/${item.id}`" class="recommend-item"
+      <router-link slots="div" :to="`/detail/${item.id}`" class="recommend-item"
         v-for="item of recommendList"
         :key="item.id"
       >

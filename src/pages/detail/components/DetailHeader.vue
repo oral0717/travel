@@ -1,10 +1,10 @@
 <template>
   <div>
-    <router-link tag="div" to="/" v-show="showAbs" class="header-abs">
+    <router-link slots="div" to="/" v-show="showAbs" class="header-abs">
       <i class="iconfont icon-fanhui"></i>
     </router-link>
     <div class="header-fixed" v-show="!showAbs" :style="opacityStyle">
-      <router-link tag="div" to="/" class="header-left">
+      <router-link slots="div" to="/" class="header-left">
         <i class="iconfont icon-fanhui"></i>
       </router-link>
       <div class="">景点详情</div>
@@ -26,7 +26,7 @@ export default {
   mounted() {
     window.addEventListener("scroll", this.handleScroll)
   },
-  destroyed() {
+  unmounted() {
     window.removeEventListener('scroll', this.handleScroll)
   },
   methods: {

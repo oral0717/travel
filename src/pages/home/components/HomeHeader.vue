@@ -2,8 +2,8 @@
   <div class="header">
     <div class="header-left"><i class="iconfont icon-fanhui"></i></div>
     <div class="header-input"><i class="iconfont icon-chazhao"></i>输入城市/景点/游玩主题</div>
-    <router-link to='/city'>
-      <div class="header-right">{{this.city}}<i class="iconfont icon-shixiangxiajiantou-"></i></div>
+    <router-link to='/city' slots="div" class="header-right">
+      {{this.city}}<i class="iconfont icon-shixiangxiajiantou-"></i>
     </router-link>
   </div>
 </template>

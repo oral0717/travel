@@ -9,7 +9,7 @@
           <p class="icon-text">{{item.desc}}</p>
         </div>
       </swiper-slide>
-      <div class="swiper-pagination"  slot="pagination"></div>
+      <div class="swiper-pagination"  slots="pagination"></div>
     </swiper>
   </div>
 </template>
