@@ -10,11 +10,10 @@ import 'swiper/dist/css/swiper.css'
 // import fastClick from 'fastclick'
 import store from './store'
 
-// Vue.use(VueAwesomeSwiper)
-// Vue.use(new VConsole())
+new VConsole()
+// new VueAwesomeSwiper()
 createApp(App)
   .use(router)
   .use(store)
   .use(VueAwesomeSwiper)
-  .use(new VConsole())
   .mount('#app')

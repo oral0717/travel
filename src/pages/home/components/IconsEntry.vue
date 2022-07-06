@@ -4,12 +4,12 @@
       <swiper-slide v-for="(page, index) of pages" :key="index">
         <div class="icon-item" v-for="item of page" :key="item.id">
           <div class="icon-img">
-            <img width="100%" :src="item.imgUrl" />
+            <img :src="item.imgUrl" />
           </div>
           <p class="icon-text">{{item.desc}}</p>
         </div>
       </swiper-slide>
-      <div class="swiper-pagination"  slots="pagination"></div>
+      <div class="swiper-pagination"></div>
     </swiper>
   </div>
 </template>
@@ -75,6 +75,8 @@ export default {
         margin-bottom 0.14rem
         background-size cover
         border-radius: 0.4rem
+        img
+          width 100%
       .icon-text
         color $defaultTextColor
         font-size 0.24rem

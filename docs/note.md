@@ -119,6 +119,13 @@ activated() {
 deactivated() {
   window.removeEventListener('scroll', this.handleScroll)
 },
+补充：vue3中使用keep-alive
+// App.vue
+<router-view v-slot="{ Component }">
+  <keep-alive exclude="DetailPage">
+    <component :is="Component"/>
+  </keep-alive>
+</router-view>
 
 ## 递归组件
 
@@ -135,6 +142,12 @@ export default {
 - 递归调用组件时，写的组件名 <DetailList></DetailList>
 - devtool中展示的组件名
 
+
 ## 代码拆分，按需加载
 router/index.js
 component: () => import('@/pages/home/HomePage'),
+
+## vue3中使用vConsole
+import VConsole from 'vconsole'
+new VConsole()
+Vue.use(new VConsole()) // 不要这样做，会报错
