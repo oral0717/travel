@@ -1,3 +1,9 @@
+<!--
+ * @Descripttion: 
+ * @Author: Oral
+ * @Date: 2022-06-22 14:12:31
+ * @LastEditTime: 2022-07-28 13:33:31
+-->
 <template>
   <div class="swiper-wrap">
     <swiper :options="swiperOption">
@@ -38,7 +44,8 @@ export default {
   height 0
   padding-bottom 30.333%
   overflow hidden
-  & >>> .swiper-pagination-bullet-active
+  // & >>> .swiper-pagination-bullet-active
+  :deep(.swiper-pagination-bullet-active) // vue3中改变引入的子组件样式采用:deep()
     background #fff
   .swiper-item
     width 100%
